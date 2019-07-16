@@ -1,13 +1,10 @@
-import { SET_EVENTS, ADD_EVENT } from '../actions/events'
-
-const initialState = []
+import { TOKEN } from '../actions/users'
+const initialState = ''
 
 export default function events(state = initialState, { type, payload }) {
     switch (type) {
-        case SET_EVENTS:
+        case TOKEN:
             return payload
-        case ADD_EVENT:
-            return [...state, payload]
         default:
             return state
     }

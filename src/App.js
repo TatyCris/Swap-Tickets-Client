@@ -13,8 +13,9 @@ export default class App extends Component {
     return (
       <div className="App">
         <main className="App-main">
-          <Route exact path="/" component={EventsContainer} />
-          {/* <Route exact path="/events" component={EventsContainer} /> */}
+          <Route exact path="/" component={LoguinContainer} />
+          {/* <Route exact path="/" component={EventsContainer} /> */}
+          <Route exact path="/events" component={EventsContainer} />
         </main>
       </div>
     )

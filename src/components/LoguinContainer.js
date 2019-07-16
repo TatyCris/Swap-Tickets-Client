@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as request from 'superagent'
 import { connect } from 'react-redux'
-import { getUser } from '../actions/users'
+import { getUser, getToken } from '../actions/users'
 
 
 class LoginContainer extends Component {
@@ -27,7 +27,7 @@ class LoginContainer extends Component {
         const { password } = this.state
         const { passwordConfirmation } = this.state
 
-        this.setState({ username: '', password: '' })
+        this.setState({ username: '', password: '', passwordConfirmation: '' })
 
         if (this.state.option === 'SIGN_UP') {
             if (password !== passwordConfirmation) {
@@ -37,23 +37,32 @@ class LoginContainer extends Component {
                     .post(`${this.url}/users`)
                     .send({ username, password })
                     .then(res => {
+                        console.log('signup res', res)
                         this.props.getUser(username)
-                        this.props.history.push(`/events`)
+                        alert("User created successfully!")
 
+                        request
+                            .post(`${this.url}/login`)
+                            .send({ username, password })
+                            .then(res => {
+                                this.props.getUser(username)
+                                this.props.history.push(`/events`)
+                                this.props.getToken(res.body.jwt)
+                                localStorage.setItem ('token', res.body.jwt)
+                            })
+                            .catch(error => console.log(error))
                     })
                     .catch(error => console.log(error))
             }
         } else {
-            console.log('im here');
-            
             request
                 .post(`${this.url}/login`)
                 .send({ username, password })
                 .then(res => {
-                    console.log('username', username, password)
-                    
                     this.props.getUser(username)
                     this.props.history.push(`/events`)
+                    this.props.getToken(res.body.jwt)
+                    localStorage.setItem ('token', res.body.jwt)
                 })
                 .catch(error => console.log(error))
         }
@@ -83,7 +92,7 @@ class LoginContainer extends Component {
                         <br />
                         <input
                             onChange={this.onChange}
-                            value={this.state.password_confirmation}
+                            value={this.state.passwordConfirmation}
                             name="passwordConfirmation"
                             type="password">
                         </input>
@@ -125,4 +134,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getUser })(LoginContainer)
+export default connect(mapStateToProps, { getUser, getToken })(LoginContainer)
