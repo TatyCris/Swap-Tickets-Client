@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Events from './Events';
+import Modal from './Modal'
 import { getEvents, postEvent } from '../actions/events'
+import './Events.css'
 
 class EventsContainer extends Component {
     state = {
@@ -10,6 +12,7 @@ class EventsContainer extends Component {
         pictureUrl: '',
         start: '',
         end: '',
+        openModal: false
     }
 
     componentDidMount() {
@@ -43,35 +46,46 @@ class EventsContainer extends Component {
         })
     }
 
+    showModal = () => {
+        this.setState({ openModal: true })
+    }
+
+    hideModal = () => {
+        this.setState({ openModal: false })
+    }
+
     renderFormCreate = () => {
         const { name } = this.state
         const { description } = this.state
         const { pictureUrl } = this.state
 
         return (
-            <form onSubmit={this.onSubmit}>
-                <h3>Add an event: </h3>
-                <label>Name: </label>
-                <input onChange={this.onChange} value={name} name="name"></input>
-                <label>Description: </label>
-                <input onChange={this.onChange} value={description} name="description"></input>
-                <label>Image url: </label>
-                <input onChange={this.onChange} value={pictureUrl} name="pictureUrl"></input>
-                <label>Start date: </label>
-                <input onChange={this.onChange} name="start" type="date"></input>
-                <label>End date: </label>
-                <input onChange={this.onChange} name="end" type="date"></input>
+            <div>
+                <form onSubmit={this.onSubmit} className="form-create">
+                    <h3>Add an event: </h3>
+                    <label>Name: </label>
+                    <input onChange={this.onChange} value={name} name="name"></input>
+                    <label>Description: </label>
+                    <input onChange={this.onChange} value={description} name="description"></input>
+                    <label>Image url: </label>
+                    <input onChange={this.onChange} value={pictureUrl} name="pictureUrl"></input>
+                    <label>Start date: </label>
+                    <input onChange={this.onChange} name="start" type="date"></input>
+                    <label>End date: </label>
+                    <input onChange={this.onChange} name="end" type="date"></input>
 
-                <button>Add</button>
-            </form>
+                    <button>Add</button>
+                </form>
+            </div>
         )
     }
 
     render() {
         return (
             <div>
-                {this.renderFormCreate()}
+                <button onClick={this.showModal}>Create an event</button>
                 <Events events={this.props.events} />
+                <Modal openModal={this.state.openModal} hideModal={this.hideModal} form={this.renderFormCreate} />
             </div>
         )
     }
