@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Tickets from './Tickets'
 import Modal from './Modal'
-import { getTickets } from '../actions/tickets.js'
+import { getTickets, postTicket } from '../actions/tickets.js'
 import './Tickets.css'
 
 class TicketsContainer extends Component {
@@ -60,7 +60,7 @@ class TicketsContainer extends Component {
                 <form onSubmit={this.onSubmit} className="form-create">
                     <h3>Add a ticket: </h3>
                     <label>Price: </label>
-                    <input onChange={this.onChange} value={name} name="name"></input>
+                    <input onChange={this.onChange} value={name} name="price"></input>
                     <label>Description: </label>
                     <input onChange={this.onChange} value={description} name="description"></input>
                     <label>Image url: </label>
@@ -89,5 +89,4 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { getTickets })(TicketsContainer)
-
+export default connect(mapStatetoProps, { getTickets, postTicket })(TicketsContainer)
