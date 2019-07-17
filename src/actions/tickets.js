@@ -62,3 +62,20 @@ export function getDetails(id, ticketId) {
             .catch(console.error)
     }
 }
+
+export function changeTicket(id, ticketId, pictureUrl, price, description) {
+    return async function (dispatch) {
+        request
+            .put(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}`)
+            .set({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.token })
+            .send({
+                pictureUrl: pictureUrl,
+                price: price,
+                description: description
+            })
+            .then(response => {
+                dispatch(addTicket(response.body))
+            })
+            .catch(console.error)
+    }
+}

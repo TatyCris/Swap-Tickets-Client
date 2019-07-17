@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Tickets from './Tickets'
 import Modal from './Modal'
-import { getTickets, postTicket } from '../actions/tickets.js'
+import { getTickets, postTicket, changeTicket } from '../actions/tickets.js'
 import { getEvent } from '../actions/events'
 import './Tickets.css'
 
@@ -11,6 +11,7 @@ class TicketsContainer extends Component {
         price: '',
         description: '',
         pictureUrl: '',
+        edit: false,
         openModal: false
     }
 
@@ -44,6 +45,22 @@ class TicketsContainer extends Component {
         })
     }
 
+    submitChange = (event) => {
+        event.preventDefault()
+        this.props.changeTicket(
+            // id,
+            // ticketId,
+            this.state.price,
+            this.state.description,
+            this.state.pictureUrl
+        )
+        this.setState({
+            price: '',
+            description: '',
+            pictureUrl: '',
+        })
+    }
+
     showModal = () => {
         this.setState({ openModal: true })
     }
@@ -52,23 +69,49 @@ class TicketsContainer extends Component {
         this.setState({ openModal: false })
     }
 
+    handleCreate = (event) => {
+        event.preventDefault()
+        this.setState({
+            price: '',
+            description: '',
+            pictureUrl: '',
+            edit: false
+        })
+        this.showModal()
+    }
+
+    handleEdit = (event, ticket) => {
+        event.preventDefault()
+        this.setState({
+            price: ticket.price,
+            description: ticket.description,
+            pictureUrl: ticket.pictureUrl,
+            edit: true
+        }) 
+        this.showModal()
+    }
+
     renderFormCreate = () => {
-        const { name } = this.state
+        const { price } = this.state
         const { description } = this.state
         const { pictureUrl } = this.state
 
+        const onSubmit = this.state.edit ? this.submitChange : this.onSubmit
+        const title = this.state.edit ? 'Edit ticket' : 'Create ticket'
+        const buttonTitle = this.state.edit ? 'Save' : 'Add'
+
         return (
             <div>
-                <form onSubmit={this.onSubmit} className="form-create">
-                    <h3>Add a ticket: </h3>
+                <form onSubmit={onSubmit} className="form-create">
+                    <h3>{title}</h3>
                     <label>Price: </label>
-                    <input onChange={this.onChange} value={name} name="price"></input>
+                    <input onChange={this.onChange} value={price} name="price"></input>
                     <label>Description: </label>
                     <input onChange={this.onChange} value={description} name="description"></input>
                     <label>Image url: </label>
                     <input onChange={this.onChange} value={pictureUrl} name="pictureUrl"></input>
 
-                    <button>Add</button>
+                    <button>{buttonTitle}</button>
                 </form>
             </div>
         )
@@ -78,9 +121,17 @@ class TicketsContainer extends Component {
         return (
             <div>
                 <h3>{this.props.event.name}</h3>
-                <button onClick={this.showModal}>Create a ticket</button>
-                <Tickets tickets={this.props.tickets} user={this.props.user} />
-                <Modal openModal={this.state.openModal} hideModal={this.hideModal} form={this.renderFormCreate} />
+                <button onClick={this.handleCreate}>Create a ticket</button>
+                <Tickets
+                    tickets={this.props.tickets}
+                    user={this.props.user}
+                    handleEdit={this.handleEdit}
+                />
+                <Modal
+                    openModal={this.state.openModal}
+                    hideModal={this.hideModal}
+                    form={this.renderFormCreate}
+                />
             </div>
         )
     }
@@ -94,4 +145,4 @@ const mapStatetoProps = (state) => {
     }
 }
 
-export default connect(mapStatetoProps, { getTickets, postTicket, getEvent })(TicketsContainer)
+export default connect(mapStatetoProps, { getTickets, postTicket, getEvent, changeTicket })(TicketsContainer)
