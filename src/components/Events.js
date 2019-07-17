@@ -10,6 +10,7 @@ export default class Events extends Component {
                     <div key={event.id} className="event-container">
                         <img className="event-image" src={event.pictureUrl} alt={event.name} />
                         <h3>{event.name}</h3>
+                        <p>{event.description}</p>
                         {event.start === event.end ? event.start : <p>{event.start} - {event.end}</p>}
                     </div>
                 </Link >
