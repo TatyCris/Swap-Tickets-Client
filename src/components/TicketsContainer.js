@@ -76,7 +76,7 @@ class TicketsContainer extends Component {
         return (
             <div>
                 <button onClick={this.showModal}>Create a ticket</button>
-                <Tickets tickets={this.props.tickets}/>
+                <Tickets tickets={this.props.tickets} />
                 <Modal openModal={this.state.openModal} hideModal={this.hideModal} form={this.renderFormCreate} />
             </div>
         )
