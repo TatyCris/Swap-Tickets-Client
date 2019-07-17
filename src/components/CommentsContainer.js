@@ -12,8 +12,6 @@ class CommentsContainer extends Component {
     }
 
     render() {
-        console.log('props', this.props);
-        
         return (
             <div>
                 <Comments comments={this.props.comments} />

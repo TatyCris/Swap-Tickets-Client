@@ -21,7 +21,6 @@ export function getComments(id, ticketId) {
         request
             .get(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}/comments`)
             .then(response => {
-                console.log('comments', response.body)
                 dispatch(setComments(response.body))
             })
             .catch(console.error)

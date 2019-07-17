@@ -21,7 +21,6 @@ export function getEvents() {
         request
             .get('http://localhost:4000/events')
             .then(response => {
-                // console.log('events', response.body.events)
                 dispatch(setEvents(response.body.events))
             })
             .catch(console.error)
