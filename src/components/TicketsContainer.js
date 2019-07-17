@@ -79,7 +79,7 @@ class TicketsContainer extends Component {
             <div>
                 <h3>{this.props.event.name}</h3>
                 <button onClick={this.showModal}>Create a ticket</button>
-                <Tickets tickets={this.props.tickets} />
+                <Tickets tickets={this.props.tickets} user={this.props.user} />
                 <Modal openModal={this.state.openModal} hideModal={this.hideModal} form={this.renderFormCreate} />
             </div>
         )
@@ -89,7 +89,8 @@ class TicketsContainer extends Component {
 const mapStatetoProps = (state) => {
     return {
         tickets: state.tickets,
-        event: state.event
+        event: state.event,
+        user: state.currentUser
     }
 }
 

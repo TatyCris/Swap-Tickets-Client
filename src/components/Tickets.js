@@ -11,6 +11,7 @@ export default class Tickets extends Component {
                         <p>{ticket.author}</p>
                         <p>{ticket.price} €</p>
                         <p>{ticket.description}</p>
+                        {this.props.user.userId === ticket.userId ? <button>Delete</button> : null}
                     </div>
                 </Link >
             )

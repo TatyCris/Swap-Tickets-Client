@@ -4,12 +4,14 @@ import LoguinContainer from './components/LoguinContainer';
 import EventsContainer from './components/EventsContainer';
 import TicketsContainer from './components/TicketsContainer';
 import TicketDetailsContainer from './components/TicketDetailsContainer';
+import { authentication } from './actions/users' 
+import  { connect } from 'react-redux'
 import './App.css';
 
-export default class App extends Component {
-  baseUrl = 'http://localhost:4000'
-  url = `${this.baseUrl}/rooms`
-
+class App extends Component {
+  componentDidMount() {
+    this.props.authentication()
+  }
 
   render() {
     return (
@@ -25,3 +27,5 @@ export default class App extends Component {
     )
   }
 }
+
+export default connect(null, { authentication })(App)
