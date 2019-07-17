@@ -19,6 +19,7 @@ export default class Events extends Component {
 
     render() {
         const { events } = this.props
+        
         return (
             <div>
                 {!events && 'Loading...'}

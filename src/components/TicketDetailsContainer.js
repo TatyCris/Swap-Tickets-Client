@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import TicketDetails from './TicketDetails';
-import { getDetails } from '../actions/tickets.js'
 import { connect } from 'react-redux'
+import TicketDetails from './TicketDetails';
+import CommentsContainer from './CommentsContainer';
+import { getDetails } from '../actions/tickets.js'
 
 class TicketDetailsContainer extends Component {
     id = this.props.match.params.id
@@ -15,6 +16,7 @@ class TicketDetailsContainer extends Component {
         return (
             <div>
                 <TicketDetails ticket={this.props.ticket}/>
+                <CommentsContainer id={this.id} ticketId={this.ticketId} />
             </div>
         )
     }
