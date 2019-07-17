@@ -77,9 +77,10 @@ class TicketDetailsContainer extends Component {
         
         if (risk < 5) {
             return risk = 5
-        }   
-        if (risk > 95) {
+        } else if (risk > 95) {
             return risk = 95
+        } else {
+            return risk
         }
     }
 
