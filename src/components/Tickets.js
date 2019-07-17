@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './Tickets.css'
 
 export default class Tickets extends Component {
     renderTickets = () => {
         return this.props.tickets.map(ticket => {
             return (
-                // <Link to={`/events/${event.id}/tickets`} key={event.id}>
-                <div key={ticket.id} className="ticket-container">
-                    <p>{ticket.author}</p>
-                    <p>{ticket.price} €</p>
-                    <p>{ticket.description}</p>
-                </div>
-                // </Link >
+                <Link to={`/events/${ticket.eventId}/tickets/${ticket.id}`} key={ticket.id}>
+                    <div key={ticket.id} className="ticket-container">
+                        <p>{ticket.author}</p>
+                        <p>{ticket.price} €</p>
+                        <p>{ticket.description}</p>
+                    </div>
+                </Link >
             )
         })
     }
 
     render() {
-        console.log('props Tickets', this.props);
-
         const { tickets } = this.props
+
         return (
             <div>
                 <div className="title">

@@ -3,6 +3,7 @@ import { Route } from "react-router-dom"
 import LoguinContainer from './components/LoguinContainer';
 import EventsContainer from './components/EventsContainer';
 import TicketsContainer from './components/TicketsContainer';
+import TicketDetailsContainer from './components/TicketDetailsContainer';
 import './App.css';
 
 export default class App extends Component {
@@ -18,6 +19,7 @@ export default class App extends Component {
           {/* <Route exact path="/" component={EventsContainer} /> */}
           <Route exact path="/events" component={EventsContainer} />
           <Route exact path="/events/:id/tickets" component={TicketsContainer} />
+          <Route exact path="/events/:id/tickets/:ticketId" component={TicketDetailsContainer} />
         </main>
       </div>
     )

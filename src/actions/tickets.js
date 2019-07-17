@@ -1,6 +1,7 @@
 import * as request from 'superagent'
 export const SET_TICKETS = 'SET_TICKETS'
 export const ADD_TICKET = 'ADD_TICKET'
+export const SET_DETAILS = 'SET_DETAILS'
 
 function setTickets(tickets) {
     return {
@@ -13,6 +14,13 @@ function addTicket(ticket) {
     return {
         type: ADD_TICKET,
         payload: ticket
+    }
+}
+
+function setDetails(details) {
+    return {
+        type: SET_DETAILS,
+        payload: details
     }
 }
 
@@ -41,5 +49,16 @@ export function postTicket(id, pictureUrl, price, description) {
                 dispatch(addTicket(response.body))
             })
             .catch(err => console.log(err))
+    }
+}
+
+export function getDetails(id, ticketId) {
+    return async function (dispatch) {
+        request
+            .get(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}`)
+            .then(response => {
+                dispatch(setDetails(response.body))
+            })
+            .catch(console.error)
     }
 }
