@@ -95,8 +95,7 @@ class EventsContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        events: state.events,
-        token: state.token
+        events: state.events
     }
 }
 

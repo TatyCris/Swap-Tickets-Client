@@ -37,7 +37,6 @@ class LoginContainer extends Component {
                     .post(`${this.url}/users`)
                     .send({ username, password })
                     .then(res => {
-                        console.log('signup res', res)
                         this.props.getUser(username)
                         alert("User created successfully!")
 
