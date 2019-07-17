@@ -15,5 +15,6 @@ a {
 }
 
 .event-container img {
-
+    width: 150px;
+    max-height: 150px;
 }
