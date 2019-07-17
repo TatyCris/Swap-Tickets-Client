@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Tickets from './Tickets'
 import Modal from './Modal'
 import { getTickets, postTicket } from '../actions/tickets.js'
+import { getEvent } from '../actions/events'
 import './Tickets.css'
 
 class TicketsContainer extends Component {
@@ -17,6 +18,7 @@ class TicketsContainer extends Component {
 
     componentDidMount() {
         this.props.getTickets(this.id)
+        this.props.getEvent(this.id)
     }
 
     onChange = (event) => {
@@ -75,6 +77,7 @@ class TicketsContainer extends Component {
     render() {
         return (
             <div>
+                <h3>{this.props.event.name}</h3>
                 <button onClick={this.showModal}>Create a ticket</button>
                 <Tickets tickets={this.props.tickets} />
                 <Modal openModal={this.state.openModal} hideModal={this.hideModal} form={this.renderFormCreate} />
@@ -85,8 +88,9 @@ class TicketsContainer extends Component {
 
 const mapStatetoProps = (state) => {
     return {
-        tickets: state.tickets
+        tickets: state.tickets,
+        event: state.event
     }
 }
 
-export default connect(mapStatetoProps, { getTickets, postTicket })(TicketsContainer)
+export default connect(mapStatetoProps, { getTickets, postTicket, getEvent })(TicketsContainer)
