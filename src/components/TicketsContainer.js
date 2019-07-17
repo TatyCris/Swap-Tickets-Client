@@ -12,6 +12,7 @@ class TicketsContainer extends Component {
         description: '',
         pictureUrl: '',
         edit: false,
+        ticketId: null,
         openModal: false
     }
 
@@ -34,22 +35,7 @@ class TicketsContainer extends Component {
     onSubmit = (event) => {
         event.preventDefault()
         this.props.postTicket(
-            this.state.price,
-            this.state.description,
-            this.state.pictureUrl
-        )
-        this.setState({
-            price: '',
-            description: '',
-            pictureUrl: ''
-        })
-    }
-
-    submitChange = (event) => {
-        event.preventDefault()
-        this.props.changeTicket(
-            // id,
-            // ticketId,
+            this.props.event.id,
             this.state.price,
             this.state.description,
             this.state.pictureUrl
@@ -58,7 +44,27 @@ class TicketsContainer extends Component {
             price: '',
             description: '',
             pictureUrl: '',
+            ticketId: ''
         })
+        this.hideModal()
+    }
+
+    submitChange = (event) => {
+        event.preventDefault()
+        this.props.changeTicket(
+            this.props.event.id,
+            this.state.ticketId,
+            this.state.price,
+            this.state.description,
+            this.state.pictureUrl
+        )
+        this.setState({
+            price: '',
+            description: '',
+            pictureUrl: '',
+            ticketId: ''
+        })
+        this.hideModal()
     }
 
     showModal = () => {
@@ -83,6 +89,7 @@ class TicketsContainer extends Component {
     handleEdit = (event, ticket) => {
         event.preventDefault()
         this.setState({
+            ticketId: ticket.id,
             price: ticket.price,
             description: ticket.description,
             pictureUrl: ticket.pictureUrl,

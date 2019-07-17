@@ -35,15 +35,15 @@ export function getTickets(id) {
     }
 }
 
-export function postTicket(id, pictureUrl, price, description) {
+export function postTicket(id, price, description, pictureUrl) {
     return async function (dispatch) {
         request
             .post(`http://localhost:4000/events/${id}/tickets`)
             .set({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.token })
             .send({
-                pictureUrl: pictureUrl,
                 price: price,
-                description: description
+                description: description,
+                pictureUrl: pictureUrl
             })
             .then(response => {
                 dispatch(addTicket(response.body))
@@ -63,15 +63,15 @@ export function getDetails(id, ticketId) {
     }
 }
 
-export function changeTicket(id, ticketId, pictureUrl, price, description) {
+export function changeTicket(id, ticketId, price, description, pictureUrl) {
     return async function (dispatch) {
         request
             .put(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}`)
             .set({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.token })
             .send({
-                pictureUrl: pictureUrl,
                 price: price,
-                description: description
+                description: description,
+                pictureUrl: pictureUrl
             })
             .then(response => {
                 dispatch(addTicket(response.body))
