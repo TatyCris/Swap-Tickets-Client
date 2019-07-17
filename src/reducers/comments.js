@@ -7,7 +7,7 @@ export default function comments(state = initialState, { type, payload }) {
         case SET_COMMENTS:
             return payload
         case ADD_COMMENT:
-            return [...state, payload]
+            return [payload, ...state]
         default:
             return state
     }

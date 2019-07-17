@@ -27,7 +27,7 @@ export function getComments(id, ticketId) {
     }
 }
 
-export function postEvent(id, ticketId, text) {
+export function postComment(id, ticketId, text) {
     return async function (dispatch) {
         request
             .post(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}/comments`)
