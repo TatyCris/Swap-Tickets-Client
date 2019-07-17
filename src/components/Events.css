@@ -1,7 +1,19 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .form-create {
-    
+
 }
 
 .event-container {
+    border: 1px solid red;
+    background: rgb(241, 176, 54);   
+    margin: 40px;
+    width: 650px; 
+}
+
+.event-container img {
 
 }

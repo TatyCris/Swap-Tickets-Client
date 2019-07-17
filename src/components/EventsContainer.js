@@ -86,6 +86,8 @@ class EventsContainer extends Component {
                 <button onClick={this.showModal}>Create an event</button>
                 <Events events={this.props.events} />
                 <Modal openModal={this.state.openModal} hideModal={this.hideModal} form={this.renderFormCreate} />
+                <button>Previous</button>
+                <button>Next</button>
             </div>
         )
     }
