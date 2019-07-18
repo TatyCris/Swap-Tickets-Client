@@ -72,7 +72,6 @@ export function getDetails(id, ticketId) {
 }
 
 export function changeTicket(id, ticketId, price, description, pictureUrl) {
-    console.log('changed')
     return async function (dispatch) {
         request
             .put(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}`)
