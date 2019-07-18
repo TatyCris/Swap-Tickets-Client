@@ -24,12 +24,14 @@ function setEvent(event) {
     }
 }
 
-export function getEvents() {
+export function getEvents(offset) {
     return async function (dispatch) {
         request
             .get('http://localhost:4000/events')
+            .query({ offset })
             .then(response => {
-                dispatch(setEvents(response.body.events))
+                console.log('response', response.body)
+                dispatch(setEvents(response.body))
             })
             .catch(console.error)
     }

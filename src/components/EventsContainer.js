@@ -15,8 +15,10 @@ class EventsContainer extends Component {
         openModal: false
     }
 
+    offset = 0
+
     componentDidMount() {
-        this.props.getEvents()
+        this.props.getEvents(0)
     }
 
     onChange = (event) => {
@@ -80,14 +82,29 @@ class EventsContainer extends Component {
         )
     }
 
+    pagination = (previous) => {
+        if (previous) {
+            if (this.offset > 0) {
+                this.offset -= 9
+                this.props.getEvents(this.offset)
+            }
+        } else {
+            if (this.offset < this.props.total - 9 ) {
+                this.offset += 9
+                this.props.getEvents(this.offset);
+            }
+        }
+
+    }
+
     render() {
         return (
             <div>
                 <button onClick={this.showModal}>Create an event</button>
                 <Events events={this.props.events} />
                 <Modal openModal={this.state.openModal} hideModal={this.hideModal} form={this.renderFormCreate} />
-                <button>Previous</button>
-                <button>Next</button>
+                <button onClick={() => this.pagination(true)}>Previous </button>
+                <button onClick={() => this.pagination(false)}>Next </button>
             </div>
         )
     }
@@ -95,7 +112,8 @@ class EventsContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        events: state.events
+        events: state.events.events,
+        total: state.events.total
     }
 }
 
