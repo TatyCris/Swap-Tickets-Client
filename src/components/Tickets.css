@@ -24,16 +24,13 @@ a {
     margin: 100px 20px;
 }
 
-/* .form-create {
-
-} */
-
 .ticket-container {
     display: flex;
     justify-content: space-between;
     border: 1px solid red;
     background: rgb(39, 221, 167);
     width: 650px;
+    margin: 10px 0;
 }
 
 .ticket-container p {
@@ -75,4 +72,10 @@ a {
 
 .button {
     display: inline-block;
+}
+
+.tickets-container .ticket-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

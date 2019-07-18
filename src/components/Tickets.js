@@ -33,7 +33,7 @@ export default class Tickets extends Component {
         const { tickets } = this.props
 
         return (
-            <div>
+            <div className="ticket-wrapper">
                 <div className="title">
                     <span>Seller</span>
                     <span>Price</span>

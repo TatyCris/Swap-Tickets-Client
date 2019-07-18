@@ -5,8 +5,8 @@ export default class Comments extends Component {
         return this.props.comments.map(comment => {
             return (
                     <div key={comment.id} className="comment-container">
-                        <p>{comment.author}</p>
-                        <p>{comment.text}</p>
+                        <p className="author">{comment.author}</p>
+                        <p className="text">{comment.text}</p>
                     </div>
             )
         })
@@ -16,7 +16,7 @@ export default class Comments extends Component {
         const { comments } = this.props
 
         return (
-            <div>
+            <div className="comment-wrapper">
                 {!comments && 'Loading...'}
                 {comments && this.renderComments()}
             </div>

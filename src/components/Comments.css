@@ -26,3 +26,27 @@
     text-align: left;
     width: 100%;
 }
+
+.comment-container {
+    border: 2px solid rgb(27, 63, 33);
+    border-radius: 4px;
+    margin: 15px 0;
+    display: flex;
+}
+
+.comment-wrapper {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.comment-container .author {
+    width: 30%;
+    font-weight: bold;
+}
+
+.comment-container .text {
+    width: 70%;
+    word-break: break-word;
+    margin: 15px;
+    text-align: left;
+}

@@ -39,12 +39,10 @@ class Header extends Component {
                 alert("Password confirmation must match Password")
             } else {
                 this.props.signin(username, password)
-                // this.props.history.push(`/events`)
                 this.hideModal()
             }
         } else {
             this.props.login(username, password)
-            // this.props.history.push(`/events`)
             this.hideModal()
 
         }
@@ -67,7 +65,7 @@ class Header extends Component {
                 }
                 <form onSubmit={this.onSubmit}>
                     <label>Username</label>
-                    <input onChange={this.onChange} value={this.state.username} name="username"></input>
+                    <input onChange={this.onChange} value={this.state.username} name="username" autoFocus></input>
                     <label>Password</label>
                     <input
                         onChange={this.onChange}

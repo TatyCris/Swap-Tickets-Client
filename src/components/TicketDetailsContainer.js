@@ -90,7 +90,7 @@ class TicketDetailsContainer extends Component {
         if (this.riskCalculator() < 36) {
             return <p className="risk" style={{backgroundColor: 'green'}}>Risk: {this.riskCalculator()}%</p>
         } else if (this.riskCalculator() < 66) {
-            return <p className="risk" style={{backgroundColor: 'yellow'}}>Risk: {this.riskCalculator()}%</p>
+            return <p className="risk" style={{backgroundColor: 'yellow', color: 'darkred'}}>Risk: {this.riskCalculator()}%</p>
         } else {
             return <p className="risk" style={{backgroundColor: 'red'}}>Risk: {this.riskCalculator()}%</p>
         }

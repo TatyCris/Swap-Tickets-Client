@@ -56,7 +56,7 @@ class CommentsContainer extends Component {
     render() {
         return (
             <div className="comments-container">
-                {this.renderFormCreate()}
+                {this.props.user.username ? this.renderFormCreate() : null}
                 <Comments comments={this.props.comments} />
             </div>
         )
@@ -65,7 +65,8 @@ class CommentsContainer extends Component {
 
 const mapStatetoProps = (state) => {
     return {
-        comments: state.comments
+        comments: state.comments,
+        user: state.currentUser
     }
 }
 

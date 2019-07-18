@@ -104,6 +104,7 @@ class EventsContainer extends Component {
                     <h2>Create new event</h2>
                 </div>
                 <div>
+                    <h1>Events</h1>
                     <Events events={this.props.events} />
                     <Modal openModal={this.state.openModal} hideModal={this.hideModal} form={this.renderFormCreate} />
                     <div className="pagination">
