@@ -6,7 +6,7 @@ export default class TicketDetails extends Component {
 
         return (
             <div key={ticket.id} className="details-container">
-                <h3>Event Name</h3>
+                <h3>{this.props.eventName}</h3>
                 <p>Ticket from {ticket.author}</p>
                 {this.props.risk()}
                 <p>EUR {ticket.price}</p>

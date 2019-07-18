@@ -4,6 +4,7 @@ import moment from 'moment-business-time'
 import TicketDetails from './TicketDetails';
 import CommentsContainer from './CommentsContainer';
 import { getDetails, getTickets } from '../actions/tickets.js'
+import { getEvent } from '../actions/events'
 
 
 class TicketDetailsContainer extends Component {
@@ -13,6 +14,7 @@ class TicketDetailsContainer extends Component {
     componentDidMount() {
         this.props.getDetails(this.id, this.ticketId)
         this.props.getTickets(this.id)
+        this.props.getEvent(this.id)
     }
 
     riskCalculator = () => {
@@ -97,7 +99,7 @@ class TicketDetailsContainer extends Component {
     render() {
         return (
             <div>
-                <TicketDetails ticket={this.props.ticket} risk={this.renderRisk} />
+                <TicketDetails ticket={this.props.ticket} eventName={this.props.event} risk={this.renderRisk} />
                 <CommentsContainer id={this.id} ticketId={this.ticketId} />
             </div>
         )
@@ -108,8 +110,9 @@ const mapStatetoProps = (state) => {
     return {
         tickets: state.tickets,
         ticket: state.ticket,
-        comments: state.comments
+        comments: state.comments,
+        event: state.event.name
     }
 }
 
-export default connect(mapStatetoProps, { getDetails, getTickets })(TicketDetailsContainer)
+export default connect(mapStatetoProps, { getDetails, getTickets, getEvent })(TicketDetailsContainer)

@@ -30,7 +30,14 @@ export function getEvents(offset) {
             .get('http://localhost:4000/events')
             .query({ offset })
             .then(response => {
-                console.log('response', response.body)
+                // const responseFiltered = response.body.events
+                //     .filter(event => new Date(event.end).getTime() > new Date().getTime())
+                // console.log('response', response.body)
+                // console.log('responseFiltered', responseFiltered)
+                // console.log('today', new Date().getTime())
+                // console.log('eventsend', response.body.events.map(event => new Date(event.end).getTime()))
+                // console.log('compare', new Date().getTime() > new Date(response.body.events[8].end).getTime())
+                
                 dispatch(setEvents(response.body))
             })
             .catch(console.error)

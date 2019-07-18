@@ -1,6 +1,6 @@
 import { SET_EVENT } from '../actions/events'
 
-const initialState = []
+const initialState = {}
 
 export default function event(state = initialState, { type, payload }) {
     switch (type) {
