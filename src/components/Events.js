@@ -26,7 +26,7 @@ export default class Events extends Component {
         const { events } = this.props
 
         return (
-            <div>
+            <div className="events-wrapper">
                 {!events && 'Loading...'}
                 {events && this.renderEvents()}
             </div>

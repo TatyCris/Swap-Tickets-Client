@@ -80,3 +80,8 @@ a {
 .event-text {
     margin: 0;
 }
+
+.events-wrapper {
+    display: flex;
+    flex-direction: column;
+}
