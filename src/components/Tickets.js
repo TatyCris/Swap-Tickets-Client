@@ -19,7 +19,7 @@ export default class Tickets extends Component {
                             ?
                             <div>
                                 <button onClick={(e) => this.props.handleEdit(e, ticket)}>Edit</button>
-                                <button>Delete</button>
+                                {/* <button>Delete</button> */}
                             </div>
                             :
                             null
