@@ -7,7 +7,7 @@ export default class TicketDetails extends Component {
         return (
             <div key={ticket.id} className="details-container">
                 <p>Ticket from {ticket.author}</p>
-                <p>Risk: {this.props.risk}%</p>
+                {this.props.risk()}
                 <p>EUR {ticket.price}</p>
                 <img className="ticket-image" src={ticket.pictureUrl} alt="ticket" />
                 <p>{ticket.description}</p>

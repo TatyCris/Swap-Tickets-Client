@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import moment from 'moment-business-time'
 import TicketDetails from './TicketDetails';
 import CommentsContainer from './CommentsContainer';
 import { getDetails, getTickets } from '../actions/tickets.js'
 
-const moment = require('moment-business-time');
 
 class TicketDetailsContainer extends Component {
     id = this.props.match.params.id
@@ -84,10 +84,20 @@ class TicketDetailsContainer extends Component {
         }
     }
 
+    renderRisk = () => {
+        if (this.riskCalculator() < 36) {
+            return <p style={{backgroundColor: 'green'}}>Risk: {this.riskCalculator()}%</p>
+        } else if (this.riskCalculator() < 66) {
+            return <p style={{backgroundColor: 'yellow'}}>Risk: {this.riskCalculator()}%</p>
+        } else {
+            return <p style={{backgroundColor: 'red'}}>Risk: {this.riskCalculator()}%</p>
+        }
+    }
+
     render() {
         return (
             <div>
-                <TicketDetails ticket={this.props.ticket} risk={this.riskCalculator()} />
+                <TicketDetails ticket={this.props.ticket} risk={this.renderRisk} />
                 <CommentsContainer id={this.id} ticketId={this.ticketId} />
             </div>
         )
