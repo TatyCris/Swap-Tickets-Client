@@ -1,6 +1,7 @@
 import * as request from 'superagent'
 export const SET_TICKETS = 'SET_TICKETS'
 export const ADD_TICKET = 'ADD_TICKET'
+export const UPDATE_TICKET = 'UPDATE_TICKET'
 export const SET_DETAILS = 'SET_DETAILS'
 
 function setTickets(tickets) {
@@ -13,6 +14,13 @@ function setTickets(tickets) {
 function addTicket(ticket) {
     return {
         type: ADD_TICKET,
+        payload: ticket
+    }
+}
+
+function updateTicket(ticket) {
+    return {
+        type: UPDATE_TICKET,
         payload: ticket
     }
 }
@@ -64,6 +72,7 @@ export function getDetails(id, ticketId) {
 }
 
 export function changeTicket(id, ticketId, price, description, pictureUrl) {
+    console.log('changed')
     return async function (dispatch) {
         request
             .put(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}`)
@@ -74,7 +83,7 @@ export function changeTicket(id, ticketId, price, description, pictureUrl) {
                 pictureUrl: pictureUrl
             })
             .then(response => {
-                dispatch(addTicket(response.body))
+                dispatch(updateTicket(response.body))
             })
             .catch(console.error)
     }

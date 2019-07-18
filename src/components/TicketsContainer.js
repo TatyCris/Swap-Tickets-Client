@@ -8,7 +8,7 @@ import './Tickets.css'
 
 class TicketsContainer extends Component {
     state = {
-        price: '',
+        price: 0,
         description: '',
         pictureUrl: '',
         edit: false,
@@ -34,6 +34,7 @@ class TicketsContainer extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
+        console.log('create')
         this.props.postTicket(
             this.props.event.id,
             this.state.price,
@@ -41,7 +42,7 @@ class TicketsContainer extends Component {
             this.state.pictureUrl
         )
         this.setState({
-            price: '',
+            price: 0,
             description: '',
             pictureUrl: '',
             ticketId: ''
@@ -51,6 +52,7 @@ class TicketsContainer extends Component {
 
     submitChange = (event) => {
         event.preventDefault()
+        console.log('update')
         this.props.changeTicket(
             this.props.event.id,
             this.state.ticketId,
@@ -59,7 +61,7 @@ class TicketsContainer extends Component {
             this.state.pictureUrl
         )
         this.setState({
-            price: '',
+            price: 0,
             description: '',
             pictureUrl: '',
             ticketId: ''
@@ -78,7 +80,7 @@ class TicketsContainer extends Component {
     handleCreate = (event) => {
         event.preventDefault()
         this.setState({
-            price: '',
+            price: 0,
             description: '',
             pictureUrl: '',
             edit: false

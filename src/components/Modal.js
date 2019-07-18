@@ -3,7 +3,6 @@ import './Modal.css'
 
 export default class Modal extends Component {
     render() {
-        console.log('propsmodal', this.props)
         if (this.props.openModal) {
             return (
                 <div className="modal">
