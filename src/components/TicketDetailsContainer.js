@@ -5,7 +5,7 @@ import TicketDetails from './TicketDetails';
 import CommentsContainer from './CommentsContainer';
 import { getDetails, getTickets } from '../actions/tickets.js'
 import { getEvent } from '../actions/events'
-
+import './TicketDetails.css'
 
 class TicketDetailsContainer extends Component {
     id = this.props.match.params.id
@@ -88,11 +88,11 @@ class TicketDetailsContainer extends Component {
 
     renderRisk = () => {
         if (this.riskCalculator() < 36) {
-            return <p style={{backgroundColor: 'green'}}>Risk: {this.riskCalculator()}%</p>
+            return <p className="risk" style={{backgroundColor: 'green'}}>Risk: {this.riskCalculator()}%</p>
         } else if (this.riskCalculator() < 66) {
-            return <p style={{backgroundColor: 'yellow'}}>Risk: {this.riskCalculator()}%</p>
+            return <p className="risk" style={{backgroundColor: 'yellow'}}>Risk: {this.riskCalculator()}%</p>
         } else {
-            return <p style={{backgroundColor: 'red'}}>Risk: {this.riskCalculator()}%</p>
+            return <p className="risk" style={{backgroundColor: 'red'}}>Risk: {this.riskCalculator()}%</p>
         }
     }
 

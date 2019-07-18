@@ -1,0 +1,23 @@
+.details-container button {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    margin: 20px;
+    background-color: #282c34;
+    color: white;
+    border: 0px;
+    cursor: pointer;
+}
+
+.details-container button:hover {
+    color: #969dac;
+}
+
+.price {
+    font-size: 21px;
+}
+
+.risk {
+    margin: 0 300px;
+    font-size: 21px;
+}

@@ -17,7 +17,7 @@ export default class Tickets extends Component {
                     {
                         this.props.user.userId === ticket.userId
                             ?
-                            <div>
+                            <div className="button">
                                 <button onClick={(e) => this.props.handleEdit(e, ticket)}>Edit</button>
                                 {/* <button>Delete</button> */}
                             </div>

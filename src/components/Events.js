@@ -8,10 +8,14 @@ export default class Events extends Component {
             return (
                 <Link to={`/events/${event.id}/tickets`} key={event.id}>
                     <div key={event.id} className="event-container">
-                        <img className="event-image" src={event.pictureUrl} alt={event.name} />
-                        <h3>{event.name}</h3>
-                        <p>{event.description}</p>
-                        {event.start === event.end ? event.start : <p>{event.start} - {event.end}</p>}
+                        <div className="event-image">
+                            <img src={event.pictureUrl} alt={event.name} />
+                        </div>
+                        <div className="event-info">
+                            <h3 className="event-text">{event.name}</h3>
+                            <p className="event-text">{event.description}</p>
+                            {event.start === event.end ? <p>{event.start}</p> : <p>{event.start} - {event.end}</p>}
+                        </div>
                     </div>
                 </Link >
             )
@@ -20,7 +24,7 @@ export default class Events extends Component {
 
     render() {
         const { events } = this.props
-        
+
         return (
             <div>
                 {!events && 'Loading...'}

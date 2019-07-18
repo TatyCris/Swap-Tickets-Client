@@ -12,10 +12,63 @@
     color: black;
     position: fixed;
     background: rgb(241, 176, 54);
-    width: 80%;
+    width: fit-content;
     height: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+label {
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+input, textarea {
+    margin-bottom: 20px;
+    padding: 7px;
+}
+
+textarea {
+    height: 80px;
+}
+
+button {
+    font-size: 18px;
+    border-radius: 4px;
+    margin: 20px 0;
+    background-color: #132b61;
+    border: 0px;
+    cursor: pointer;
+    height: 40px;
+    width: 100%;
+    color: white;
+    outline: none;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #3963c7;
+}
+
+button.close {
+    background-color: transparent;
+    color: black;
+    position: absolute;
+    width: 40px;
+    right: 0;
+    top: -20px;
+    height: 40px;
+}
+
+button.close:hover {
+    color: #969dac;
 }

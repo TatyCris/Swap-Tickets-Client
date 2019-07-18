@@ -3,18 +3,76 @@ a {
     color: inherit;
 }
 
-.form-create {
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: -20px 0 30px 0;
+}
 
+.pagination button {
+    font-size: 30px;
+    border-radius: 4px;
+    background-color: #282c34;
+    color: white;
+    border: 0px;
+    cursor: pointer;
+    width: 60px;
+}
+
+.pagination button:hover {
+    color: #969dac;
+}
+
+.create-title {
+    position: fixed;
+    left: 5%;
+    cursor: pointer;
+    color: rgb(189, 63, 84);
+}
+
+.create-title:hover {
+    color: rgb(238, 169, 169);
+}
+
+.create-title h2 {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    text-align: right;
+    margin: 100px 20px;
 }
 
 .event-container {
     border: 1px solid red;
-    background: rgb(241, 176, 54);   
+    background: rgb(241, 176, 54);
     margin: 40px;
-    width: 650px; 
+    width: 650px;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    height: 200px;
+    color: #282c34;
 }
 
-.event-container img {
-    width: 150px;
-    max-height: 150px;
+.event-image {
+    display: flex;
+    width: 250px;
+}
+
+.event-image img {
+    max-height: 200px;
+    width: 100%;
+}
+
+.event-info {
+    width: 300px;
+    padding: 30px;
+}
+
+.event-info h3 {
+    margin-bottom: 15px;
+}
+
+.event-text {
+    margin: 0;
 }

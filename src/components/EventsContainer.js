@@ -89,7 +89,7 @@ class EventsContainer extends Component {
                 this.props.getEvents(this.offset)
             }
         } else {
-            if (this.offset < this.props.total - 9 ) {
+            if (this.offset < this.props.total - 9) {
                 this.offset += 9
                 this.props.getEvents(this.offset);
             }
@@ -99,12 +99,18 @@ class EventsContainer extends Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.showModal}>Create an event</button>
-                <Events events={this.props.events} />
-                <Modal openModal={this.state.openModal} hideModal={this.hideModal} form={this.renderFormCreate} />
-                <button onClick={() => this.pagination(true)}>Previous </button>
-                <button onClick={() => this.pagination(false)}>Next </button>
+            <div className="events-container">
+                <div className="create-title" onClick={this.showModal}>
+                    <h2>Create new event</h2>
+                </div>
+                <div>
+                    <Events events={this.props.events} />
+                    <Modal openModal={this.state.openModal} hideModal={this.hideModal} form={this.renderFormCreate} />
+                    <div className="pagination">
+                        <button onClick={() => this.pagination(true)}>{'<'} </button>
+                        <button onClick={() => this.pagination(false)}>{'>'} </button>
+                    </div>
+                </div>
             </div>
         )
     }

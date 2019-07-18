@@ -45,11 +45,9 @@ class CommentsContainer extends Component {
                         onChange={this.onChange}
                         value={text}
                         name="text"
-                        rows="8"
-                        cols="80"
                     >
                     </textarea>
-                    <button>Add comment</button>
+                    <button>Add</button>
                 </form>
             </div>
         )
@@ -57,7 +55,7 @@ class CommentsContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="comments-container">
                 {this.renderFormCreate()}
                 <Comments comments={this.props.comments} />
             </div>

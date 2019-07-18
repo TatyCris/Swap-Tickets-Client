@@ -1,3 +1,28 @@
 .form-create {
     resize: none;
 }
+
+.comments-container .form-create {
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.comments-container button {
+    background-color: #54b872;
+}
+
+.comments-container button:hover {
+    color: #969dac;
+}
+
+.comments-container textarea {
+    width: 100%;
+    margin: 0;
+}
+
+.comments-container label {
+    text-align: left;
+    width: 100%;
+}

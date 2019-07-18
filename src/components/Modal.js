@@ -7,8 +7,8 @@ export default class Modal extends Component {
             return (
                 <div className="modal">
                     <div className="modal-main">
+                        <button className="close" onClick={this.props.hideModal}>X</button>
                         {this.props.form()}
-                        <button onClick={this.props.hideModal}>X</button>
                     </div>
                 </div>
             )

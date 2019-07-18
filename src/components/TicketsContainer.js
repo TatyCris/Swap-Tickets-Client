@@ -34,7 +34,6 @@ class TicketsContainer extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
-        console.log('create')
         this.props.postTicket(
             this.props.event.id,
             this.state.price,
@@ -52,7 +51,6 @@ class TicketsContainer extends Component {
 
     submitChange = (event) => {
         event.preventDefault()
-        console.log('update')
         this.props.changeTicket(
             this.props.event.id,
             this.state.ticketId,
@@ -96,7 +94,7 @@ class TicketsContainer extends Component {
             description: ticket.description,
             pictureUrl: ticket.pictureUrl,
             edit: true
-        }) 
+        })
         this.showModal()
     }
 
@@ -106,7 +104,7 @@ class TicketsContainer extends Component {
         const { pictureUrl } = this.state
 
         const onSubmit = this.state.edit ? this.submitChange : this.onSubmit
-        const title = this.state.edit ? 'Edit ticket' : 'Create ticket'
+        const title = this.state.edit ? 'Edit ticket' : 'New ticket'
         const buttonTitle = this.state.edit ? 'Save' : 'Add'
 
         return (
@@ -116,7 +114,7 @@ class TicketsContainer extends Component {
                     <label>Price: </label>
                     <input onChange={this.onChange} value={price} name="price"></input>
                     <label>Description: </label>
-                    <input onChange={this.onChange} value={description} name="description"></input>
+                    <textarea onChange={this.onChange} value={description} name="description" />
                     <label>Image url: </label>
                     <input onChange={this.onChange} value={pictureUrl} name="pictureUrl"></input>
 
@@ -129,18 +127,22 @@ class TicketsContainer extends Component {
     render() {
         return (
             <div>
-                <h3>{this.props.event.name}</h3>
-                <button onClick={this.handleCreate}>Create a ticket</button>
-                <Tickets
-                    tickets={this.props.tickets}
-                    user={this.props.user}
-                    handleEdit={this.handleEdit}
-                />
-                <Modal
-                    openModal={this.state.openModal}
-                    hideModal={this.hideModal}
-                    form={this.renderFormCreate}
-                />
+                <div className="create-ticket" onClick={this.handleCreate}>
+                    <h2>Create new ticket</h2>
+                </div>
+                <div className="tickets-container">
+                    <h2>{this.props.event.name}</h2>
+                    <Tickets
+                        tickets={this.props.tickets}
+                        user={this.props.user}
+                        handleEdit={this.handleEdit}
+                    />
+                </div>
+                    <Modal
+                        openModal={this.state.openModal}
+                        hideModal={this.hideModal}
+                        form={this.renderFormCreate}
+                    />
             </div>
         )
     }
