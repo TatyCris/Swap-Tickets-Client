@@ -28,14 +28,14 @@
 }
 
 .comment-container {
-    border: 2px solid rgb(27, 63, 33);
+    border: 2px solid rgb(38, 160, 58);
     border-radius: 4px;
     margin: 15px 0;
     display: flex;
 }
 
 .comment-wrapper {
-    width: 400px;
+    width: 500px;
     margin: 0 auto;
 }
 
