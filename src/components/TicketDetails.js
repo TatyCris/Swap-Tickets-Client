@@ -13,6 +13,7 @@ export default class TicketDetails extends Component {
                 <p className="price">EUR {ticket.price}</p>
                 <img className="ticket-image" src={ticket.pictureUrl} alt="ticket" />
                 <p>{ticket.description}</p>
+                <button className="buy">BUY</button>
             </div>
         )
     }
