@@ -1,4 +1,6 @@
 import * as request from 'superagent'
+import { host } from '../routes'
+
 export const SET_COMMENTS = 'SET_COMMENTS'
 export const ADD_COMMENT = 'ADD_COMMENT'
 
@@ -19,7 +21,7 @@ function addComment(comment) {
 export function getComments(id, ticketId) {
     return async function (dispatch) {
         request
-            .get(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}/comments`)
+            .get(`${host}/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}/comments`)
             .then(response => {
                 dispatch(setComments(response.body))
             })
@@ -30,7 +32,7 @@ export function getComments(id, ticketId) {
 export function postComment(id, ticketId, text) {
     return async function (dispatch) {
         request
-            .post(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}/comments`)
+            .post(`${host}/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}/comments`)
             .set({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.token })
             .send({
                 text: text

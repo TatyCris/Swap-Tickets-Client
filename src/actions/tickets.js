@@ -1,4 +1,6 @@
 import * as request from 'superagent'
+import { host } from '../routes'
+
 export const SET_TICKETS = 'SET_TICKETS'
 export const ADD_TICKET = 'ADD_TICKET'
 export const UPDATE_TICKET = 'UPDATE_TICKET'
@@ -35,7 +37,7 @@ function setDetails(details) {
 export function getTickets(id) {
     return async function (dispatch) {
         request
-            .get(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets`)
+            .get(`${host}/events/${encodeURIComponent(id)}/tickets`)
             .then(response => {
                 dispatch(setTickets(response.body))
             })
@@ -46,7 +48,7 @@ export function getTickets(id) {
 export function postTicket(id, price, description, pictureUrl) {
     return async function (dispatch) {
         request
-            .post(`http://localhost:4000/events/${id}/tickets`)
+            .post(`${host}/events/${id}/tickets`)
             .set({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.token })
             .send({
                 price: price,
@@ -63,7 +65,7 @@ export function postTicket(id, price, description, pictureUrl) {
 export function getDetails(id, ticketId) {
     return async function (dispatch) {
         request
-            .get(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}`)
+            .get(`${host}/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}`)
             .then(response => {
                 dispatch(setDetails(response.body))
             })
@@ -74,7 +76,7 @@ export function getDetails(id, ticketId) {
 export function changeTicket(id, ticketId, price, description, pictureUrl) {
     return async function (dispatch) {
         request
-            .put(`http://localhost:4000/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}`)
+            .put(`${host}/events/${encodeURIComponent(id)}/tickets/${encodeURIComponent(ticketId)}`)
             .set({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.token })
             .send({
                 price: price,

@@ -1,4 +1,6 @@
 import * as request from 'superagent'
+import { host } from '../routes'
+
 export const USERS = 'USERS'
 export const TOKEN = 'TOKEN'
 export const LOG_OUT = 'LOG_OUT'
@@ -20,7 +22,7 @@ export function getToken(token) {
 export function login(username, password) {
     return async function (dispatch) {
         request
-            .post(`http://localhost:4000/login`)
+            .post(`${host}/login`)
             .send({ username, password })
             .then(res => {
                 localStorage.setItem('token', res.body.jwt)
@@ -34,7 +36,7 @@ export function login(username, password) {
 export function signin(username, password) {
     return async function (dispatch) {
         request
-            .post(`http://localhost:4000/users`)
+            .post(`${host}/users`)
             .send({ username, password })
             .then(res => {
                 localStorage.setItem('token', res.body.jwt)
@@ -48,7 +50,7 @@ export function signin(username, password) {
 export function authentication() {
     return async function (dispatch) {
         request
-            .get(`http://localhost:4000/authentication`)
+            .get(`${host}/authentication`)
             .set({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.token })
             .then(response => {
                 dispatch(setUser(response.body))
