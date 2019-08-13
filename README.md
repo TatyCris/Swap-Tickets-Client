@@ -12,9 +12,9 @@ This project is the client side of a full stack web-application where users can 
 ## Intro
 This is a React app for the Swap Tickets real world project - which was created for the final assignment during week 8 of the Codaisseur Academy.
 
-The Backend for the following repo may be found [here](https://tikets-now-client.herokuapp.com)
+The Backend for the following repo may be found [here](https://tikets-now-server.herokuapp.com)
 
-**[Check out the deployed app here!](https://jobs-board-client.herokuapp.com)**
+**[Check out the deployed app here!](https://tikets-now-client.herokuapp.com)**
 
 ## Technologies used
 - React
