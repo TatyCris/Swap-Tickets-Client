@@ -1,5 +1,5 @@
 import * as request from 'superagent'
-import { host } from '../routes'
+import { host } from '../constants'
 
 export const SET_TICKETS = 'SET_TICKETS'
 export const ADD_TICKET = 'ADD_TICKET'

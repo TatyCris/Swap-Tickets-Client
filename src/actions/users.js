@@ -1,5 +1,5 @@
 import * as request from 'superagent'
-import { host } from '../routes'
+import { host } from '../constants'
 
 export const USERS = 'USERS'
 export const TOKEN = 'TOKEN'
