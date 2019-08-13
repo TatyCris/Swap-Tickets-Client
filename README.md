@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Swap-Tickets-Client
+This project is the client side of a full stack web-application where users can buy and sell tickets for all kinds of events.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Intro](#Intro)
+- [Technologies used](#Technologies-used)
+- [Goals for this project](#Goals-for-this-project)
+- [Setup](#Setup)
+- [Create React App](#Create-React-App)
 
-### `npm start`
+## Intro
+This is a React app for the Swap Tickets real world project - which was created for the final assignment during week 8 of the Codaisseur Academy.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The Backend for the following repo may be found [here](https://tikets-now-client.herokuapp.com)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+**[Check out the deployed app here!](https://jobs-board-client.herokuapp.com)**
 
-### `npm test`
+## Technologies used
+- React
+- Redux
+- Redux-Thunk
+- CSS
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Goals for this project
+- [x] Login and signup page for customers.
+- [x] You need to login to be able to create events, tickets and posting comments.
+- [x] You can see max. 9 events on a page and click 'next' to see more pages of events if there are more.
+- [x] You can only see events that are not finished yet.
+- [x] After you click on an event, you will see a list of tickets that are offered for this event.
+- [x] When you click on a ticket, you see the details of that ticket and which event it's for. 
+- [x] On a specific ticket page you can see the percentage and a color indicating the risk of being fraudulent.
+- [x] On a specific ticket page everybody can see all the comments.
 
-### `npm run build`
+## Setup
+In order to run this App please ensure you have the server running as well. 
+Instructions on how to do that may be found [here](https://github.com/TatyCris/Swap-Tickets-Server)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- git clone
+```bash
+$ git clone https://github.com/TatyCris/Swap-Tickets-Client.git
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- npm install
+```bash
+$ npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- npm start
+```bash
+$ npm start
+```
 
-### `npm run eject`
+## Create React App
+This project was scaffolded using the create-react-app cli. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**[The standard create-react-app docs can be found in here](https://github.com/facebook/create-react-app)**
