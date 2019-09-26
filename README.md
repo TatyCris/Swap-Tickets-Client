@@ -20,6 +20,7 @@ The Backend for the following repo may be found [here](https://github.com/TatyCr
 - React
 - Redux
 - Redux-Thunk
+- React-Router
 - CSS
 
 ## Goals for this project
