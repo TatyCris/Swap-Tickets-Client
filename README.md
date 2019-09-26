@@ -1,5 +1,5 @@
-# Swap-Tickets-Client
-This project is the client side of a full stack web-application where users can buy and sell tickets for all kinds of events.
+# TicketsNow
+This project is the client part of a full-stack web-application where users can (in a future feature) buy and sell tickets for all kinds of events.
 
 ## Table of contents
 
@@ -10,9 +10,9 @@ This project is the client side of a full stack web-application where users can 
 - [Create React App](#Create-React-App)
 
 ## Intro
-This is a React app for the Swap Tickets real world project - which was created for the final assignment during week 8 of the Codaisseur Academy.
+This is a React app for the TicketsNow real world project - which was created for the final assignment during week 8 of the Codaisseur Academy.
 
-The Backend for the following repo may be found [here](https://github.com/TatyCris/Swap-Tickets-Server)
+The Backend for the following repo may be found [here](https://github.com/TatyCris/TicketsNow-Server)
 
 **[Check out the deployed app here!](https://tickets-now-client.herokuapp.com)**
 
@@ -34,11 +34,11 @@ The Backend for the following repo may be found [here](https://github.com/TatyCr
 
 ## Setup
 In order to run this App please ensure you have the server running as well. 
-Instructions on how to do that may be found [here](https://github.com/TatyCris/Swap-Tickets-Server)
+Instructions on how to do that may be found [here](https://github.com/TatyCris/TicketsNow-Server)
 
 - git clone
 ```bash
-$ git clone https://github.com/TatyCris/Swap-Tickets-Client.git
+$ git clone https://github.com/TatyCris/TicketsNow-Client.git
 ```
 
 - npm install
