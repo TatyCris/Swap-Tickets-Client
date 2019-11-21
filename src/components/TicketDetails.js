@@ -11,7 +11,7 @@ export default class TicketDetails extends Component {
                 <h2>Ticket from {ticket.author}</h2>
                 {this.props.risk()}
                 <p className="price">{ticket.price === 0 ? 'FREE': ticket.price + 'EUR'}</p>
-                <img className="ticket-image" src={ticket.pictureUrl} alt="ticket" />
+                {ticket.pictureUrl && <img className="ticket-image" src={ticket.pictureUrl} alt="ticket" />}
                 <p>{ticket.description}</p>
                 <button className="buy">BUY</button>
             </div>
