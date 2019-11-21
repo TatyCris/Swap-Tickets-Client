@@ -8,7 +8,7 @@ import './Tickets.css'
 
 class TicketsContainer extends Component {
     state = {
-        price: 0,
+        price: '',
         description: '',
         pictureUrl: '',
         edit: false,
@@ -41,7 +41,7 @@ class TicketsContainer extends Component {
             this.state.pictureUrl
         )
         this.setState({
-            price: 0,
+            price: '',
             description: '',
             pictureUrl: '',
             ticketId: ''
@@ -59,7 +59,7 @@ class TicketsContainer extends Component {
             this.state.pictureUrl
         )
         this.setState({
-            price: 0,
+            price: '',
             description: '',
             pictureUrl: '',
             ticketId: ''
@@ -78,7 +78,7 @@ class TicketsContainer extends Component {
     handleCreate = (event) => {
         event.preventDefault()
         this.setState({
-            price: 0,
+            price: '',
             description: '',
             pictureUrl: '',
             edit: false
@@ -99,10 +99,7 @@ class TicketsContainer extends Component {
     }
 
     renderFormCreate = () => {
-        const { price } = this.state
-        const { description } = this.state
-        const { pictureUrl } = this.state
-
+        const { price, description, pictureUrl } = this.state
         const onSubmit = this.state.edit ? this.submitChange : this.onSubmit
         const title = this.state.edit ? 'Edit ticket' : 'New ticket'
         const buttonTitle = this.state.edit ? 'Save' : 'Add'
@@ -117,7 +114,6 @@ class TicketsContainer extends Component {
                     <textarea onChange={this.onChange} value={description} name="description" />
                     <label>Image url: </label>
                     <input onChange={this.onChange} value={pictureUrl} name="pictureUrl"></input>
-
                     <button>{buttonTitle}</button>
                 </form>
             </div>
