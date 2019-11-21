@@ -43,7 +43,7 @@ export function signin(username, password) {
                 dispatch(authentication())
                 dispatch(login(username, password))
             })
-            .catch(err => alert(err))
+            .catch(console.error)
     }
 }
 
@@ -55,7 +55,7 @@ export function authentication() {
             .then(response => {
                 dispatch(setUser(response.body))
             })
-            .catch(err => alert(err))
+            .catch(console.error)
     }
 }
 
