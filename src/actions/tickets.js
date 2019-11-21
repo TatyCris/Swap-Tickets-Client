@@ -41,7 +41,7 @@ export function getTickets(id) {
             .then(response => {
                 dispatch(setTickets(response.body))
             })
-            .catch(console.error)
+            .catch(err => alert(err))
     }
 }
 
@@ -58,7 +58,7 @@ export function postTicket(id, price, description, pictureUrl) {
             .then(response => {
                 dispatch(addTicket(response.body))
             })
-            .catch(err => console.log(err))
+            .catch(err => alert(err))
     }
 }
 
@@ -69,7 +69,7 @@ export function getDetails(id, ticketId) {
             .then(response => {
                 dispatch(setDetails(response.body))
             })
-            .catch(console.error)
+            .catch(err => alert(err))
     }
 }
 
@@ -86,6 +86,6 @@ export function changeTicket(id, ticketId, price, description, pictureUrl) {
             .then(response => {
                 dispatch(updateTicket(response.body))
             })
-            .catch(console.error)
+            .catch(err => alert(err))
     }
 }

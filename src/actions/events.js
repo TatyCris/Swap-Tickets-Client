@@ -34,7 +34,7 @@ export function getEvents(offset) {
             .then(response => {
                 dispatch(setEvents(response.body))
             })
-            .catch(console.error)
+            .catch(err => alert(err))
     }
 }
 
@@ -53,7 +53,7 @@ export function postEvent(name, description, pictureUrl, start, end) {
             .then(response => {
                 dispatch(addEvent(response.body))
             })
-            .catch(err => console.log(err))
+            .catch(err => alert(err))
     }
 }
 
@@ -64,6 +64,6 @@ export function getEvent(id) {
             .then(response => {
                 dispatch(setEvent(response.body))
             })
-            .catch(console.error)
+            .catch(err => alert(err))
     }
 }

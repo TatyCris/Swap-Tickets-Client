@@ -29,7 +29,7 @@ export function login(username, password) {
                 dispatch(authentication())
                 dispatch(getToken(res.body.jwt))
             })
-            .catch(console.error)
+            .catch(err => alert(err))
     }
 }
 
@@ -43,7 +43,7 @@ export function signin(username, password) {
                 dispatch(authentication())
                 dispatch(login(username, password))
             })
-            .catch(console.error)
+            .catch(err => alert(err))
     }
 }
 
@@ -55,7 +55,7 @@ export function authentication() {
             .then(response => {
                 dispatch(setUser(response.body))
             })
-            .catch(err => console.log(err))
+            .catch(err => alert(err))
     }
 }
 

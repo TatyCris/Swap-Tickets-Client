@@ -25,7 +25,7 @@ export function getComments(id, ticketId) {
             .then(response => {
                 dispatch(setComments(response.body))
             })
-            .catch(console.error)
+            .catch(err => alert(err))
     }
 }
 
@@ -40,6 +40,6 @@ export function postComment(id, ticketId, text) {
             .then(response => {
                 dispatch(addComment(response.body))
             })
-            .catch(err => console.log(err))
+            .catch(err => alert(err))
     }
 }
